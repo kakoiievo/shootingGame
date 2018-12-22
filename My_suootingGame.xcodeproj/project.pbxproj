@@ -13,6 +13,10 @@
 		AD60B4B821C3809D00B69903 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD60B4B621C3809D00B69903 /* Main.storyboard */; };
 		AD60B4BD21C380A000B69903 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD60B4BB21C380A000B69903 /* LaunchScreen.storyboard */; };
 		ADBB158821CDCBAE0074F252 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADBB158721CDCBAE0074F252 /* Assets.xcassets */; };
+		ADBB158A21CDD4840074F252 /* bkMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ADBB158921CDD4840074F252 /* bkMusic.mp3 */; };
+		ADBB158C21CDD5CC0074F252 /* shottingMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ADBB158B21CDD5CC0074F252 /* shottingMusic.mp3 */; };
+		ADBB158E21CDD7000074F252 /* shottingMusic2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ADBB158D21CDD7000074F252 /* shottingMusic2.mp3 */; };
+		ADBB159021CDD8FE0074F252 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB158F21CDD8FE0074F252 /* GameOverScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		AD60B4BC21C380A000B69903 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD60B4BE21C380A000B69903 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADBB158721CDCBAE0074F252 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ADBB158921CDD4840074F252 /* bkMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bkMusic.mp3; sourceTree = "<group>"; };
+		ADBB158B21CDD5CC0074F252 /* shottingMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = shottingMusic.mp3; sourceTree = "<group>"; };
+		ADBB158D21CDD7000074F252 /* shottingMusic2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = shottingMusic2.mp3; sourceTree = "<group>"; };
+		ADBB158F21CDD8FE0074F252 /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +66,15 @@
 			children = (
 				AD60B4AC21C3809D00B69903 /* AppDelegate.swift */,
 				AD60B4B221C3809D00B69903 /* GameScene.swift */,
+				ADBB158F21CDD8FE0074F252 /* GameOverScene.swift */,
 				AD60B4B421C3809D00B69903 /* GameViewController.swift */,
 				AD60B4B621C3809D00B69903 /* Main.storyboard */,
 				AD60B4BB21C380A000B69903 /* LaunchScreen.storyboard */,
 				AD60B4BE21C380A000B69903 /* Info.plist */,
 				ADBB158721CDCBAE0074F252 /* Assets.xcassets */,
+				ADBB158921CDD4840074F252 /* bkMusic.mp3 */,
+				ADBB158B21CDD5CC0074F252 /* shottingMusic.mp3 */,
+				ADBB158D21CDD7000074F252 /* shottingMusic2.mp3 */,
 			);
 			path = My_suootingGame;
 			sourceTree = "<group>";
@@ -127,7 +139,10 @@
 			files = (
 				AD60B4B821C3809D00B69903 /* Main.storyboard in Resources */,
 				ADBB158821CDCBAE0074F252 /* Assets.xcassets in Resources */,
+				ADBB158C21CDD5CC0074F252 /* shottingMusic.mp3 in Resources */,
 				AD60B4BD21C380A000B69903 /* LaunchScreen.storyboard in Resources */,
+				ADBB158A21CDD4840074F252 /* bkMusic.mp3 in Resources */,
+				ADBB158E21CDD7000074F252 /* shottingMusic2.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +155,7 @@
 			files = (
 				AD60B4B321C3809D00B69903 /* GameScene.swift in Sources */,
 				AD60B4B521C3809D00B69903 /* GameViewController.swift in Sources */,
+				ADBB159021CDD8FE0074F252 /* GameOverScene.swift in Sources */,
 				AD60B4AD21C3809D00B69903 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

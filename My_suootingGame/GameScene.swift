@@ -21,8 +21,16 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     let player = SKSpriteNode(imageNamed: "DQQ")
     let playerbd = SKSpriteNode(imageNamed: "bk2")
     
+    //設定一個打擊數
+    var monstersDestroyed = 0
+    
     override func didMove(to view: SKView)
     {
+        
+        //背景音樂
+        let backgroundMusic = SKAudioNode(fileNamed: "bkMusic.mp3")
+        backgroundMusic.autoplayLooped = true
+        addChild(backgroundMusic)
         
         physicsWorld.gravity = CGVector.zero
         physicsWorld.contactDelegate = self
@@ -97,6 +105,9 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         projectile.physicsBody?.contactTestBitMask = PhysicsCategory.monster
         projectile.physicsBody?.collisionBitMask = PhysicsCategory.none
         projectile.physicsBody?.usesPreciseCollisionDetection = true
+        
+        run(SKAction.playSoundFileNamed("shottingMusic2.mp3", waitForCompletion: false))
+
     }
 
     
@@ -135,7 +146,19 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         let actionMove = SKAction.move(to: CGPoint(x: -monster.size.width/2, y: actualY),
                                        duration: TimeInterval(actualDuration))
         let actionMoveDone = SKAction.removeFromParent()
-        monster.run(SKAction.sequence([actionMove, actionMoveDone]))
+        //monster.run(SKAction.sequence([actionMove, actionMoveDone]))
+        
+        let loseAction = SKAction.run()
+        {
+            [weak self]
+            in
+            guard let `self` = self else { return }
+            let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
+            let gameOverScene = GameOverScene(size: self.size, won: false)
+            self.view?.presentScene(gameOverScene, transition: reveal)
+        }
+        monster.run(SKAction.sequence([actionMove, loseAction, actionMoveDone]))
+
         
         monster.xScale = 0.5
         monster.yScale = 0.5
@@ -155,12 +178,20 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         print("Hit")
         projectile.removeFromParent()
         monster.removeFromParent()
+        
+        //開始記錄 打擊到的數目
+        monstersDestroyed += 1
+        if monstersDestroyed > 10 {
+            let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
+            let gameOverScene = GameOverScene(size: self.size, won: true)
+            view?.presentScene(gameOverScene, transition: reveal)
+        }
     }
     
     //MARK: - 碰撞委託
     func didBegin(_ contact: SKPhysicsContact)
     {
-        print("淦 去死啦")
+        //遵循Apple最保險的寫法
         var firstBody: SKPhysicsBody
         var secondBody: SKPhysicsBody
         if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
@@ -179,6 +210,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
                 projectileDidCollideWithMonster(projectile: projectile, monster: monster)
             }
         }
+        
         
     }
     
